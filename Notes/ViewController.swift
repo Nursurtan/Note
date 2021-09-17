@@ -26,7 +26,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         vc.title = "New Note"
-        
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { noteTitle, note in
+            self.navigationController?.popToRootViewController(animated: true)
+            self.models.append((title: noteTitle, note: note))
+            self.label.isHidden = true
+            self.table.isHidden = false
+            
+            self.table.reloadData()
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -46,12 +54,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Snow note controller
+        let model = models[indexPath.row]
         
+        // Snow note controller
         guard let vc = storyboard?.instantiateViewController(identifier: "note") as? NoteViewController else{
             return
         }
+        vc.navigationItem.largeTitleDisplayMode = .never
         vc.title = "Note"
+        vc.noteTitle = model.title
+        vc.note = model.note
         navigationController?.pushViewController(vc, animated: true)
     }
 }

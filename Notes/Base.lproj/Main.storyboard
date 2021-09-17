@@ -34,16 +34,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="guj-1n-fZM">
-                                                    <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                                    <rect key="frame" x="20" y="-8" width="55.5" height="36"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwC-ZK-3yM">
-                                                    <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="20" y="28" width="67.5" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -87,9 +87,39 @@
                     <view key="view" contentMode="scaleToFill" id="NFh-h1-ava">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAP-O7-KfV">
+                                <rect key="frame" x="10" y="54" width="394" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="DR4-yj-OiT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u3s-Ih-Jjn">
+                                <rect key="frame" x="10" y="116" width="394" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kn6-Q4-4t3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wAP-O7-KfV" firstAttribute="top" secondItem="kn6-Q4-4t3" secondAttribute="top" constant="10" id="Lht-6k-8Vv"/>
+                            <constraint firstItem="u3s-Ih-Jjn" firstAttribute="top" secondItem="wAP-O7-KfV" secondAttribute="bottom" constant="10" id="ThL-6N-pfF"/>
+                            <constraint firstItem="kn6-Q4-4t3" firstAttribute="trailing" secondItem="wAP-O7-KfV" secondAttribute="trailing" constant="10" id="WNl-fK-6aW"/>
+                            <constraint firstItem="kn6-Q4-4t3" firstAttribute="bottom" secondItem="u3s-Ih-Jjn" secondAttribute="bottom" constant="10" id="byp-hg-KAB"/>
+                            <constraint firstItem="kn6-Q4-4t3" firstAttribute="trailing" secondItem="u3s-Ih-Jjn" secondAttribute="trailing" constant="10" id="iKc-gm-dpL"/>
+                            <constraint firstItem="u3s-Ih-Jjn" firstAttribute="leading" secondItem="kn6-Q4-4t3" secondAttribute="leading" constant="10" id="k79-tq-MGz"/>
+                            <constraint firstItem="wAP-O7-KfV" firstAttribute="leading" secondItem="kn6-Q4-4t3" secondAttribute="leading" constant="10" id="v3a-Qz-ZVc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noteField" destination="u3s-Ih-Jjn" id="rkW-S5-QTb"/>
+                        <outlet property="titleField" destination="wAP-O7-KfV" id="iaI-3K-5oq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDT-HM-EWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,16 +150,50 @@
                     <view key="view" contentMode="scaleToFill" id="iUR-qr-oC6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbT-pa-MHz">
+                                <rect key="frame" x="10" y="54" width="394" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eae-7L-Jce"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8We-6D-KiR">
+                                <rect key="frame" x="10" y="124" width="394" height="728"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UgJ-Zh-6FS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cbT-pa-MHz" firstAttribute="top" secondItem="UgJ-Zh-6FS" secondAttribute="top" constant="10" id="JrV-1E-bNv"/>
+                            <constraint firstItem="8We-6D-KiR" firstAttribute="top" secondItem="cbT-pa-MHz" secondAttribute="bottom" constant="10" id="RdW-Bh-kWU"/>
+                            <constraint firstItem="8We-6D-KiR" firstAttribute="leading" secondItem="UgJ-Zh-6FS" secondAttribute="leading" constant="10" id="Sye-kQ-XGE"/>
+                            <constraint firstItem="UgJ-Zh-6FS" firstAttribute="trailing" secondItem="cbT-pa-MHz" secondAttribute="trailing" constant="10" id="b6V-Sl-QeY"/>
+                            <constraint firstItem="UgJ-Zh-6FS" firstAttribute="trailing" secondItem="8We-6D-KiR" secondAttribute="trailing" constant="10" id="dG8-DM-2wO"/>
+                            <constraint firstItem="cbT-pa-MHz" firstAttribute="leading" secondItem="UgJ-Zh-6FS" secondAttribute="leading" constant="10" id="hwu-To-VZO"/>
+                            <constraint firstItem="UgJ-Zh-6FS" firstAttribute="bottom" secondItem="8We-6D-KiR" secondAttribute="bottom" constant="10" id="kSB-bc-K5s"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noteLabel" destination="8We-6D-KiR" id="wTn-u1-JDD"/>
+                        <outlet property="titleLabel" destination="cbT-pa-MHz" id="Lg6-f9-kpy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ens-tP-lCm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429" y="78"/>
+            <point key="canvasLocation" x="2428.985507246377" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
